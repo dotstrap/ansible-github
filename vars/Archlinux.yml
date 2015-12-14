@@ -1,0 +1,8 @@
+---
+# vars file for Archlinux OS for github
+
+git: "git"
+hub: "hub-bin"
+joe: "python2-joe"
+git_extras: "git-extras"
+git_imerge: "git-imerge-git"

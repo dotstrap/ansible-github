@@ -1,0 +1,64 @@
+---
+# tasks file for github
+
+- name: setup
+  include_vars: "{{ item }}"
+  with_first_found:
+    - "{{ ansible_distribution }}.yml"
+    - "{{ ansible_os_family }}.yml"
+    - "default.yml"
+  tags: always
+
+- block:
+  - name: setup fish configuration
+    file: path="{{ ansible_user_dir }}/.config/fish/functions" state=directory
+
+  - name: configure git alias
+    copy: src="{{ item }}" dest="{{ ansible_user_dir }}/.config/fish/functions/{{ item }}"
+    with_items:
+      - "git.fish"
+  when: ansible_user_shell | match(".*/fish")
+  tags:
+    - bootstrap
+    - configure
+    - update
+
+- block:
+  - name: setup git configuration
+    file: path="{{ ansible_user_dir }}/.config/git" state=directory
+
+  - name: create git configuration files
+    template: src="{{ item }}" force=yes backup=yes
+              dest="{{ ansible_user_dir }}/.config/git/{{ item }}"
+    with_items:
+      - config
+      - ignore
+  tags:
+    - bootstrap
+    - configure
+    - update
+
+- block:
+  - name: install git
+    pacman: name="{{ git }}" state=latest
+    become: yes
+
+  - name: intall github enchancers
+    command: "pacaur -S {{ item }} --noconfirm --needed"
+    with_items:
+      - "{{ github_packages }}"
+    become: no
+  when: ansible_distribution == 'Archlinux'
+  tags:
+    - bootstrap
+    - install
+
+- name: install git & github enchancers
+  package: name="{{ item }}" state=present
+  with_items:
+    - "{{ git }}"
+    - "{{ github_packages }}"
+  when: ansible_distribution != 'Archlinux'
+  tags:
+    - bootstrap
+    - install

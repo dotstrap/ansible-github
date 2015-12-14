@@ -1,0 +1,7 @@
+---
+# defaults file for github
+
+github_packages:
+  - "{{ hub }}"
+  - "{{ joe }}"
+  - "{{ git_extras }}"
