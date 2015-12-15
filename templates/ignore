@@ -1,3 +1,5 @@
+.github-todos
+
 {% if ansible_distribution == 'MacOSX' %}
 #####=== OSX ===#####
 .DS_Store
