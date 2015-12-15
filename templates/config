@@ -78,6 +78,8 @@
 [url "git://gist.github.com/"]
   insteadOf = "gist:"
 
+# TODO: move credentials out of main GitHub config template, or at least use variables
+
 #####=== Credentials ===#####
 
 ; [github]
