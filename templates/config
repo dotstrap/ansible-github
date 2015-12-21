@@ -78,30 +78,16 @@
 [url "git://gist.github.com/"]
   insteadOf = "gist:"
 
-# TODO: move credentials out of main GitHub config template, or at least use variables
-
 #####=== Credentials ===#####
 
-; [github]
-;   user = mkwmms
-
 [user]
-  name  = mkwmms
-  email = mkwmms@users.noreply.github.com 
+  name  = {{ username }}
+  email = {{ email }}
 
-; [include]
-;   path = credentials # include credentials file whose path is relative to this (config) file
-
-[credential]
 {% if ansible_distribution == 'MacOSX' %}
+[credential]
   helper = osxkeychain
 {% endif %}
 
-#####=== External ===#####
-
-[alias]
-  add-upstream = !zsh -ic add-upstream
-  sync = !zsh -ic git-sync
-
-[ghi]
-  token = !security find-internet-password -a mkwmms -s github.com -l 'ghi token' -w
+; [include]
+;   path = credentials # include credentials file
