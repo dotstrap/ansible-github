@@ -5,3 +5,6 @@ github_packages:
   - "{{ hub }}"
   - "{{ joe }}"
   - "{{ git_extras }}"
+
+username:
+email:

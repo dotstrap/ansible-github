@@ -84,9 +84,11 @@
   name  = {{ username }}
   email = {{ email }}
 
-{% if ansible_distribution == 'MacOSX' %}
 [credential]
+{% if ansible_distribution == 'MacOSX' %}
   helper = osxkeychain
+{% else %}
+  helper = cache --timeout=3600
 {% endif %}
 
 ; [include]
