@@ -2,7 +2,7 @@ github
 =========
 [![Build Status](https://travis-ci.org/mkwmms/ansible-github.svg)](https://travis-ci.org/mkwmms/ansible-github)
 
-Install & configure: git & packages that enchance git.
+Install & configure git & packages that enchance git.
 
 
 Requirements
