@@ -1,7 +1,7 @@
 ---
 galaxy_info:
   author: mkwmms
-  description: "Install & configure: git & packages that enchance git."
+  description: "Install & configure git & packages that enchance git."
   license: GPLv3
   # min_ansible_version: 2.0
   platforms:
