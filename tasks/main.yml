@@ -12,11 +12,11 @@
 # install
 - block:
   - name: pacman | git
-    pacman: name="{{ git }}" state=latest
+    pacman: name="{{ git }}" state="{{ install_state }}"
 
   # FIXME: switch to another archlinux package manager module due to permissions issues
   - name: yaourt | github enchancers
-    yaourt: name="{{ item }}"
+    yaourt: name="{{ item }}" state="{{ install_state }}"
     with_items: "{{ github_packages }}"
   when: ansible_distribution == 'Archlinux'
   # become: yes
@@ -25,7 +25,7 @@
     - install
 
 - name: package | git & github enchancers
-  package: name="{{ item }}" state=present
+  package: name="{{ item }}" state="{{ install_state }}"
   with_items:
     - "{{ git }}"
     - "{{ github_packages }}"
@@ -55,8 +55,9 @@
     file: path="{{ ansible_user_dir }}/.config/fish/functions" state=directory
 
   - name: configure | fish hub function/alias
-    copy: src="{{ item }}" dest="{{ ansible_user_dir }}/.config/fish/functions/{{ item }}"
-    with_items: git.fish
+    copy: src="{{ item }}" dest="{{ ansible_user_dir }}/.config/fish/functions/{{ item | basename }}"
+    with_fileglob:
+      - functions/*
   when: ansible_user_shell | match(".*/fish")
   tags:
     - bootstrap

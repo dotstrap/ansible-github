@@ -6,5 +6,8 @@ github_packages:
   - "{{ joe }}"
   - "{{ git_extras }}"
 
+install_state: present
+# configuration_state: present
+
 username:
 email:
