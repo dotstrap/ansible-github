@@ -1,95 +1,99 @@
 #####=== General ===#####
 
 [apply]
-  # Detect whitespace errors when applying a patch
-  whitespace = fix
+        # Detect whitespace errors when applying a patch
+        whitespace = fix
 
 [core]
-  # Use custom `.gitignore` and `.gitattributes`
+        # Use custom `.gitignore` and `.gitattributes`
 
-  # Treat spaces before tabs and all kinds of trailing whitespace as an error
-  # [default] trailing-space: looks for spaces at the end of a line
-  # [default] space-before-tab: looks for spaces before tabs at the beginning of a line
-  whitespace = space-before-tab,-indent-with-non-tab,trailing-space
+        # Treat spaces before tabs and all kinds of trailing whitespace as an error
+        # [default] trailing-space: looks for spaces at the end of a line
+        # [default] space-before-tab: looks for spaces before tabs at the beginning of a line
+        whitespace = space-before-tab,-indent-with-non-tab,trailing-space
 
-  # Make `git rebase` safer on OS X
-  # More info: 
-  trustctime = false
+        # Make `git rebase` safer on OS X
+        # More info: 
+        trustctime = false
 
-  # Prevent showing files whose names contain non-ASCII symbols as unversioned.
-  # http://michael-kuehnel.de/git/2014/11/21/git-mac-osx-and-german-umlaute.html
-  precomposeunicode = false
-  editor = vim
+        # Prevent showing files whose names contain non-ASCII symbols as unversioned.
+        # http://michael-kuehnel.de/git/2014/11/21/git-mac-osx-and-german-umlaute.html
+        precomposeunicode = false
+        editor = vim
 	autocrlf = input
 
 [diff]
-  # Detect copies as well as renames
-  renames = copies
+        # Detect copies as well as renames
+        renames = copies
 
 [help]
-  # Automatically correct and execute mistyped commands
-  autocorrect = 1
+        # Automatically correct and execute mistyped commands
+        autocorrect = 1
 
 [merge]
-  # Include summaries of merged commits in newly created merge commit messages
-  log = true
+        # Include summaries of merged commits in newly created merge commit messages
+        log = true
 
 [push]
-  default = matching
+        default = matching
 
 #####=== UI ===#####
 
 [color]
-  # Use colors in Git commands that are capable of colored output when
-  # outputting to the terminal. (This is the default setting in Git ≥ 1.8.4.)
-  ui = auto
+        # Use colors in Git commands that are capable of colored output when
+        # outputting to the terminal. (This is the default setting in Git ≥ 1.8.4.)
+        ui = auto
 
 [color "branch"]
-  current = yellow reverse
-  local = yellow
-  remote = green
+        current = yellow reverse
+        local = yellow
+        remote = green
 
 [color "diff"]
-  meta = yellow bold
-  frag = magenta bold # line info
-  old = red # deletions
-  new = green # additions
+        meta = yellow bold
+        frag = magenta bold # line info
+        old = red # deletions
+        new = green # additions
 
 [color "status"]
-  added = yellow
-  changed = green
-  untracked = cyan
+        added = yellow
+        changed = green
+        untracked = cyan
 
 #####=== URL shorthands ===#####
 
 [url "git@github.com:"]
-  insteadOf = "gh:"
-  pushInsteadOf = "github:"
-  pushInsteadOf = "git://github.com/"
+        insteadOf = "gh:"
+        pushInsteadOf = "github:"
+        pushInsteadOf = "git://github.com/"
 
 [url "git://github.com/"]
-  insteadOf = "github:"
+        insteadOf = "github:"
 
 [url "git@gist.github.com:"]
-  insteadOf = "gst:"
-  pushInsteadOf = "gist:"
-  pushInsteadOf = "git://gist.github.com/"
+        insteadOf = "gst:"
+        pushInsteadOf = "gist:"
+        pushInsteadOf = "git://gist.github.com/"
 
 [url "git://gist.github.com/"]
-  insteadOf = "gist:"
+        insteadOf = "gist:"
 
 #####=== Credentials ===#####
 
 [user]
-  name  = {{ username }}
-  email = {{ email }}
+        name  = {{ username }}
+        email = {{ email }}
+
+{# TODO: figure out the difference between [user] & [github] is #}
+[github]
+        user = {{ username }}
 
 [credential]
 {% if ansible_distribution == 'MacOSX' %}
-  helper = osxkeychain
+        helper = osxkeychain
 {% else %}
-  helper = cache --timeout=3600
+        helper = cache --timeout=3600
 {% endif %}
 
 ; [include]
-;   path = credentials # include credentials file
+        ; path = credentials # include credentials file
