@@ -9,25 +9,37 @@
     - "default.yml"
   tags: always
 
+# install
 - block:
-  - name: setup fish configuration
-    file: path="{{ ansible_user_dir }}/.config/fish/functions" state=directory
+  - name: pacman | git
+    pacman: name="{{ git }}" state=latest
 
-  - name: configure git alias
-    copy: src="{{ item }}" dest="{{ ansible_user_dir }}/.config/fish/functions/{{ item }}"
-    with_items:
-      - "git.fish"
-  when: ansible_user_shell | match(".*/fish")
+  # FIXME: switch to another archlinux package manager module due to permissions issues
+  - name: yaourt | github enchancers
+    yaourt: name="{{ item }}"
+    with_items: "{{ github_packages }}"
+  when: ansible_distribution == 'Archlinux'
+  # become: yes
   tags:
     - bootstrap
-    - configure
-    - update
+    - install
 
+- name: package | git & github enchancers
+  package: name="{{ item }}" state=present
+  with_items:
+    - "{{ git }}"
+    - "{{ github_packages }}"
+  when: ansible_distribution != 'Archlinux'
+  tags:
+    - bootstrap
+    - install
+
+# configure
 - block:
-  - name: setup git configuration
+  - name: setup | configuration directories
     file: path="{{ ansible_user_dir }}/.config/git" state=directory
 
-  - name: create git configuration files
+  - name: configure | create git files
     template: src="{{ item }}" force=yes backup=yes
               dest="{{ ansible_user_dir }}/.config/git/{{ item }}"
     with_items:
@@ -39,25 +51,14 @@
     - update
 
 - block:
-  - name: install git
-    pacman: name="{{ git }}" state=latest
+  - name: setup | fish functions
+    file: path="{{ ansible_user_dir }}/.config/fish/functions" state=directory
 
-  # FIXME: switch to another archlinux package manager module due to permissions issues
-  - name: intall github enchancers
-    yaourt: name="{{ item }}"
-    with_items: "{{ github_packages }}"
-  when: ansible_distribution == 'Archlinux'
-  # become: yes
+  - name: configure | fish hub function/alias
+    copy: src="{{ item }}" dest="{{ ansible_user_dir }}/.config/fish/functions/{{ item }}"
+    with_items: git.fish
+  when: ansible_user_shell | match(".*/fish")
   tags:
     - bootstrap
-    - install
-
-- name: install git & github enchancers
-  package: name="{{ item }}" state=present
-  with_items:
-    - "{{ git }}"
-    - "{{ github_packages }}"
-  when: ansible_distribution != 'Archlinux'
-  tags:
-    - bootstrap
-    - install
+    - configure
+    - update
