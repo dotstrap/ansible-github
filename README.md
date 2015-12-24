@@ -10,7 +10,7 @@ Requirements
 
 OS X: [homebrew] and the latest XCode tools.
 
-Archlinux: [pacaur]
+Archlinux: [yaourt] package manager.
 
 Role Variables
 --------------
@@ -43,11 +43,14 @@ Author Information
 
 
 [@mkwmms]: https://github.com/mkwmms
+[aura]: https://github.com/aurapm/aura
+[default variables]: defaults/main.yml
 [dotstrap]: https://github.com/mkwmms/dotstrap
+[fasd]: https://github.com/clvv/fasd
+[files]: files/
+[fish]: http://fishshell.com/
 [homebrew]: https://github.com/Homebrew/homebrew
 [pacaur]: https://github.com/rmarquis/pacaur
-[files]: files/
-[default variables]: defaults/main.yml
 [variables]: vars/
+[yaourt]: https://github.com/archlinuxfr/yaourt
 [zsh]: http://zsh.sourceforge.net
-[fish]: http://fishshell.com/

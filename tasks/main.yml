@@ -41,14 +41,13 @@
 - block:
   - name: install git
     pacman: name="{{ git }}" state=latest
-    become: yes
 
+  # FIXME: switch to another archlinux package manager module due to permissions issues
   - name: intall github enchancers
-    command: "pacaur -S {{ item }} --noconfirm --needed"
-    with_items:
-      - "{{ github_packages }}"
-    become: no
+    yaourt: name="{{ item }}"
+    with_items: "{{ github_packages }}"
   when: ansible_distribution == 'Archlinux'
+  # become: yes
   tags:
     - bootstrap
     - install
