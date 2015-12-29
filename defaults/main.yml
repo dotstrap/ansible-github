@@ -1,5 +1,4 @@
 ---
-# defaults file for github
 
 github_packages:
   - "{{ git_lfs }}"

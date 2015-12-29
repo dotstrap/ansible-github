@@ -1,6 +1,5 @@
 ---
-
-# common variables
+# common vars
 
 git: "git"
 git_extras: "git-extras"

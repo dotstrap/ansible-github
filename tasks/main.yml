@@ -1,5 +1,4 @@
 ---
-# tasks file for github
 
 - name: setup
   include_vars: "{{ item }}"
@@ -9,7 +8,8 @@
     - "default.yml"
   tags: always
 
-# install
+#####=== install ===#####
+
 - block:
   - name: pacman | git
     pacman: name="{{ git }}" state="{{ install_state }}"
@@ -34,7 +34,8 @@
     - bootstrap
     - install
 
-# configure
+#####=== configure ===#####
+
 - block:
   - name: setup | configuration directories
     file: path="{{ ansible_user_dir }}/.config/git" state=directory
@@ -51,10 +52,10 @@
     - update
 
 - block:
-  - name: setup | fish functions
+  - name: fish | setup | functions
     file: path="{{ ansible_user_dir }}/.config/fish/functions" state=directory
 
-  - name: configure | fish hub function/alias
+  - name: fish | configure | hub function/alias
     copy: src="{{ item }}" dest="{{ ansible_user_dir }}/.config/fish/functions/{{ item | basename }}"
     with_fileglob:
       - functions/*
