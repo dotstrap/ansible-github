@@ -1,8 +1,6 @@
 ---
 # fallack vars file for github
 
-git: "git"
 hub: "hub"
 joe: "gitignore"
-git_extras: "git-extras"
 git_imerge: "git-imerge"

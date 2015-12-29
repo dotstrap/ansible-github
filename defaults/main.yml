@@ -2,9 +2,10 @@
 # defaults file for github
 
 github_packages:
+  - "{{ git_lfs }}"
+  - "{{ git_extras }}"
   - "{{ hub }}"
   - "{{ joe }}"
-  - "{{ git_extras }}"
 
 install_state: present
 # configuration_state: present

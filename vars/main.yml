@@ -1,0 +1,6 @@
+---
+
+# common variables
+
+git: "git"
+git_extras: "git-extras"
