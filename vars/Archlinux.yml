@@ -1,5 +1,4 @@
 ---
-# Archlinux vars
 
 git_lfs: "git-lfs-bin"
 git_imerge: "git-imerge-git"

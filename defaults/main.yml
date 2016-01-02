@@ -1,13 +1,13 @@
 ---
 
 github_packages:
-  - "{{ git_lfs }}"
-  - "{{ git_extras }}"
-  - "{{ hub }}"
-  - "{{ joe }}"
+  - "{{ git_lfs | default(omit) }}"
+  - "{{ git_extras | default(omit) }}"
+  - "{{ hub | default(omit)  }}"
+  - "{{ joe | default(omit)  }}"
 
 install_state: present
 # configuration_state: present
 
-username:
-email:
+username: null
+email: null
