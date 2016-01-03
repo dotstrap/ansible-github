@@ -1,5 +1,4 @@
 ---
-
 git_name: git
 
 github_packages: "{{ default_github_packages }}"

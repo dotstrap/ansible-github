@@ -1,5 +1,4 @@
 ---
-
 - name: setup
   include_vars: "{{ item }}"
   with_first_found:
@@ -8,16 +7,17 @@
     - default.yml
   tags: always
 
-#####=== install ===#####
-
+  #
+  # install
+  #
 - block:
-  - name: pacman | git
-    pacman: name="{{ git_name }}" state="{{ install_state }}"
+    - name: pacman | git
+      pacman: name="{{ git_name }}" state="{{ install_state }}"
 
-  # FIXME: switch to another archlinux package manager module due to permissions issues
-  - name: yaourt | github enchancers
-    yaourt: name="{{ item }}" state="{{ install_state }}"
-    with_items: "{{ github_packages }}"
+    # FIXME: switch to another archlinux package manager module due to permissions issues
+    - name: yaourt | github enchancers
+      yaourt: name="{{ item }}" state="{{ install_state }}"
+      with_items: "{{ github_packages }}"
   when: ansible_distribution == 'Archlinux'
   # become: yes
   tags:
@@ -34,8 +34,9 @@
     - bootstrap
     - install
 
-#####=== configure ===#####
-
+  #
+  # configure
+  #
 - block:
   - name: setup | configuration directories
     file: path="{{ ansible_user_dir }}/.config/git" state=directory
