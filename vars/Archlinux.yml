@@ -1,6 +1,8 @@
 ---
 
-git_lfs: "git-lfs-bin"
-git_imerge: "git-imerge-git"
-hub: "hub-bin"
-joe: "python2-joe"
+default_github_packages:
+  - git-lfs-bin
+  - git-imerge-git
+  - hub-bin
+  - python2-joe
+  - git-extras

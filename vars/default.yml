@@ -1,5 +1,6 @@
 ---
 
-hub: "hub"
-joe: "gitignore"
-git_imerge: "git-imerge"
+default_github_packages:
+  - hub
+  - gitignore
+  - git-imerge

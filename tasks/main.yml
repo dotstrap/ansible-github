@@ -12,7 +12,7 @@
 
 - block:
   - name: pacman | git
-    pacman: name="{{ git }}" state="{{ install_state }}"
+    pacman: name="{{ git_name }}" state="{{ install_state }}"
 
   # FIXME: switch to another archlinux package manager module due to permissions issues
   - name: yaourt | github enchancers
@@ -27,7 +27,7 @@
 - name: package | git & github enchancers
   package: name="{{ item }}" state="{{ install_state }}"
   with_items:
-    - "{{ git }}"
+    - "{{ git_name }}"
     - "{{ github_packages }}"
   when: ansible_distribution != 'Archlinux'
   tags:

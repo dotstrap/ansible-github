@@ -1,0 +1,5 @@
+---
+
+# TODO: better debian github_packages support
+default_github_packages:
+  - git-extras
