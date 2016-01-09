@@ -4,11 +4,17 @@ ansible-github
 
 Install & configure git & packages that enchance git.
 
+Installation
+------------
+
+```
+ansible-galaxy install mkwmms.github
+```
 
 Requirements
 ------------
 
-OS X: [homebrew] and the latest XCode tools.
+OS X: [homebrew] and the latest Xcode tools.
 
 Archlinux: [yaourt] package manager.
 
@@ -26,9 +32,9 @@ Example Playbook
 ----------------
 
 ```
-    - hosts: servers
+    - hosts: all
       roles:
-         - { role: mkwmms.github }
+         - role: mkwmms.github
 ```
 
 License
