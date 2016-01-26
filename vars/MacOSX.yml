@@ -1,0 +1,5 @@
+default_github_packages:
+  - hub
+  - joe
+  - git-imerge
+  - ghi
