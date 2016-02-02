@@ -1,6 +1,6 @@
 ansible-github
 ==============
-[![Build Status](https://travis-ci.org/mkwmms/ansible-github.svg)](https://travis-ci.org/mkwmms/ansible-github)
+[![Build Status](https://travis-ci.org/mwilliammyers/ansible-github.svg)](https://travis-ci.org/mwilliammyers/ansible-github)
 
 Install & configure git & packages that enchance git.
 
@@ -8,7 +8,7 @@ Installation
 ------------
 
 ```
-ansible-galaxy install mkwmms.github
+ansible-galaxy install mwilliammyers.github
 ```
 
 Requirements
@@ -34,7 +34,7 @@ Example Playbook
 ```
     - hosts: all
       roles:
-         - role: mkwmms.github
+         - role: mwilliammyers.github
 ```
 
 License
@@ -45,13 +45,13 @@ GPLv3
 Author Information
 ------------------
 
-[@mkwmms]
+[@mwilliammyers]
 
 
-[@mkwmms]: https://github.com/mkwmms
+[@mwilliammyers]: https://github.com/mwilliammyers
 [aura]: https://github.com/aurapm/aura
 [default variables]: defaults/main.yml
-[dotstrap]: https://github.com/mkwmms/dotstrap
+[dotstrap]: https://github.com/mwilliammyers/dotstrap
 [fasd]: https://github.com/clvv/fasd
 [files]: files/
 [fish]: http://fishshell.com/
