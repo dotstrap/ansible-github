@@ -1,6 +1,6 @@
 ansible-github
 ==============
-[![Build Status](https://travis-ci.org/mwilliammyers/ansible-github.svg)](https://travis-ci.org/mwilliammyers/ansible-github)
+[![Build Status](https://travis-ci.org/dotstrap/ansible-github.svg)](https://travis-ci.org/dotstrap/ansible-github)
 
 Install & configure git & packages that enchance git.
 
@@ -8,7 +8,7 @@ Installation
 ------------
 
 ```
-ansible-galaxy install mwilliammyers.github
+ansible-galaxy install dotstrap.github
 ```
 
 Requirements
@@ -34,7 +34,7 @@ Example Playbook
 ```
     - hosts: all
       roles:
-         - role: mwilliammyers.github
+         - role: dotstrap.github
 ```
 
 License
