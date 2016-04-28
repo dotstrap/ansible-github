@@ -62,10 +62,10 @@
 
 #####=== URL shorthands ===#####
 
-[url "git@github.com:{{ username }}/"]
+[url "git@github.com:{{ github_username }}/"]
         insteadOf = "me@ssh"
 
-[url "git://github.com/{{ username }}/"]
+[url "git://github.com/{{ github_username }}/"]
         insteadOf = "me@https"
 
 # FIXME: git-lfs complains about overridden URLs
@@ -88,12 +88,12 @@
 #####=== Credentials ===#####
 
 [user]
-        name  = {{ username }}
-        email = {{ email }}
+        name  = {{ github_username }}
+        github_email = {{ github_email }}
 
 {# TODO: figure out the difference between [user] & [github] is #}
 [github]
-        user = {{ username }}
+        user = {{ github_username }}
 
 [credential]
 {% if ansible_distribution == 'MacOSX' %}
