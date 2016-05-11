@@ -89,7 +89,7 @@
 
 [user]
         name  = {{ github_username }}
-        github_email = {{ github_email }}
+        email = {{ github_email }}
 
 {# TODO: figure out the difference between [user] & [github] is #}
 [github]
