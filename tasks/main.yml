@@ -29,6 +29,7 @@
     - "{{ git_name }}"
     - "{{ github_packages }}"
   when: ansible_distribution != 'Archlinux'
+  become: yes
   tags:
     - bootstrap
     - install
