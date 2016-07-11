@@ -5,6 +5,3 @@ github_packages: "{{ default_github_packages }}"
 
 install_state: present
 # configure_state: present
-
-github_username: null
-github_email: null
