@@ -2,6 +2,3 @@
 
 default_github_packages:
   - hub
-  - gitignore
-  - git-imerge
-  - ghi
