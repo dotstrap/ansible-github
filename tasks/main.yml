@@ -29,7 +29,7 @@
     - "{{ git_name }}"
     - "{{ github_packages }}"
   when: ansible_distribution != 'Archlinux'
-  become: yes
+  become: "{{ ansible_distribution != 'MacOSX' }}"
   tags:
     - bootstrap
     - install
