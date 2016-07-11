@@ -1,9 +1,6 @@
 ---
 
 default_github_packages:
-  - ghi
   - git-extras
-  - git-imerge-git
   - git-lfs-bin
   - hub-bin
-  - python2-joe
