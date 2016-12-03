@@ -14,7 +14,7 @@ ansible-galaxy install dotstrap.github
 Requirements
 ------------
 
-OS X: [homebrew] and the latest Xcode tools.
+macOS: [homebrew] and the latest Xcode tools.
 
 Archlinux: [yaourt] package manager.
 
@@ -35,6 +35,9 @@ Example Playbook
     - hosts: all
       roles:
          - role: dotstrap.github
+           github:
+             username: foo
+             email: foo@bar.com            
 ```
 
 License
