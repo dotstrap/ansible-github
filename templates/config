@@ -88,12 +88,12 @@
 #####=== Credentials ===#####
 
 [user]
-        name  = {{ github_username }}
-        email = {{ github_email }}
+        name  = {{ github.username }}
+        email = {{ github.email }}
 
 {# TODO: figure out the difference between [user] & [github] is #}
 [github]
-        user = {{ github_username }}
+        user = {{ github.username }}
 
 [credential]
 {% if ansible_distribution == 'MacOSX' %}
