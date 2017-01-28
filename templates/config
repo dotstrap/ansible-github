@@ -102,5 +102,6 @@
         helper = cache --timeout=3600
 {% endif %}
 
-; [include]
-        ; path = credentials # include credentials file
+[alias]
+        ignoreio = "!gi() { curl -L -s https://www.gitignore.io/api/$@ ;}; gi"
+	iio = "!gi() { curl -L -s https://www.gitignore.io/api/$@ ;}; gi"
